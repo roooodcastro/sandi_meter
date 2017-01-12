@@ -23,7 +23,7 @@ module SandiMeter
       attr_reader :start_line_number, :token, :file_lines
 
       def determine_last_line
-        return nil if one_liner?
+        return start_line_number if one_liner?
         end_line_index = end_line_at_indent
         return nil if end_line_index.nil?
         last_line_number(end_line_index)
